@@ -16,7 +16,7 @@ def readCSV(fileName):
     """
     with open(fileName) as data:
         reader = list(csv.reader(data)) #Using list to convert the reader object to a list
-        for row in reader[1:2001]: #Loads the first 2000 rows ommiting the header
+        for row in reader[1:101]: #Loads the first 2000 rows ommiting the header
             DTO.set_sectionID(row[0])
             DTO.set_highway(row[1])
             DTO.set_section(row[2])
