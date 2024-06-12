@@ -1,7 +1,10 @@
 import DTO
 import csv
+import os
 
-fileName = "Traffic_Volumes_-_Provincial_Highway_System.csv"
+print(os.getcwd())
+
+fileName = "../data/Traffic_Volumes_-_Provincial_Highway_System.csv"
 
 def readCSV(fileName):
     """
