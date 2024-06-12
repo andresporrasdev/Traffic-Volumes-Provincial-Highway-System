@@ -1,0 +1,21 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Traffic Data</h2>
+  <table>
+    <tr>
+      <th>Section ID</th>
+      <th>Highway</th>
+      <th>Section</th>
+      <!-- Add more headers as needed -->
+    </tr>
+    {% for data in traffic_data %}
+    <tr>
+      <td>{{ data.sectionID }}</td>
+      <td>{{ data.highway }}</td>
+      <td>{{ data.section }}</td>
+      <!-- Add more data fields as needed -->
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
