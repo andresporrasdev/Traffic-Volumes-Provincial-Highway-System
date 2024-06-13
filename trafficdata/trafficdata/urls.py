@@ -16,11 +16,11 @@ Including another URLconf
 """
 
 from django.urls import path
-from traffic_data_app import views  # Change this line
+from traffic_data_app import views  # Correct import statement
 
 urlpatterns = [
-    path('', views.index, name='index'),  # Add this line
-    path('trafficdata/', views.traffic_data_view, name='trafficdata'),
+    path('', views.index, name='index'),  # Assuming 'index' is a function in your views.py
+    path('trafficdata/', views.traffic_data_view, name='trafficdata'),  # Assuming 'traffic_data_view' is a function in your views.py
 ]
 
 # urlpatterns = [
