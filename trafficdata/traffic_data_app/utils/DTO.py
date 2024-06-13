@@ -21,7 +21,7 @@ class DTO:
 
     def get_sectionID(self):
         """Get the section ID."""
-        return self._sectionID
+        return self.sectionID
 
     def set_sectionID(self, value):
         """Set the section ID."""
