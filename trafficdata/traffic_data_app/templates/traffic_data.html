@@ -2,6 +2,8 @@
 
 {% block content %}
   <h2>Traffic Data</h2>
+<button onclick="location.href='{% url "reload_data" %}'">Reload Data</button>
+<button onclick="location.href='{% url "persist_data" %}'">Persist Data</button>
   <table>
     <tr>
       <th>Section ID</th>

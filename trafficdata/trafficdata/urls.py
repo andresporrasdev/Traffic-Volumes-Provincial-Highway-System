@@ -21,6 +21,8 @@ from traffic_data_app import views  # Correct import statement
 urlpatterns = [
     path('', views.index, name='index'),  # Assuming 'index' is a function in your views.py
     path('trafficdata/', views.traffic_data_view, name='trafficdata'),  # Assuming 'traffic_data_view' is a function in your views.py
+    path('reload/', views.reload_data, name='reload_data'),
+    path('persist/', views.persist_data, name='persist_data'),
 ]
 
 # urlpatterns = [
