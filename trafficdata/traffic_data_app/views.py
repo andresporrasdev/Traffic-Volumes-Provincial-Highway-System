@@ -22,7 +22,7 @@ def reload_data(request):
     global traffic_data
     traffic_data = readCSV()
     messages.success(request, 'Data reloaded successfully')
-    return render(request, 'exported.html', {'message': 'Data persisted successfully'})
+    return render(request, 'reload.html', {'message': 'Data persisted successfully'})
     # return JsonResponse({'message': 'Data reloaded successfully'})
 
 def persist_data(request):
