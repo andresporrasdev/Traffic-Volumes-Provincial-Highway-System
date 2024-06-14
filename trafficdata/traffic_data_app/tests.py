@@ -3,6 +3,10 @@ from .utils.ReadCSV import readCSV
 from .utils.DTO import DTO
 
 class TestReadCSV(TestCase):
+    """
+    A test case for the readCSV function.
+    """
+
     def setUp(self):
         self.fileName = "D:/Git/PythonLearning/PythonLearning/trafficdata/traffic_data_app/data/Traffic_Volumes_-_Provincial_Highway_System.csv"
 

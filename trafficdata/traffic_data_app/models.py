@@ -2,6 +2,10 @@ from django.db import models
 from datetime import datetime
 
 class TrafficData(models.Model):
+    """
+    Represents traffic data of a highway.
+    """
+
     id = models.IntegerField(primary_key=True)
     sectionID = models.IntegerField()
     highway = models.IntegerField()
