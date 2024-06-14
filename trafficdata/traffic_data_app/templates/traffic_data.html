@@ -1,6 +1,7 @@
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 {% block content %}
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   <h2 class="mb-3">Traffic Data</h2>
   <div class="btn-group mb-3" role="group" aria-label="Data actions">
     <button onclick="location.href='{% url "reload_data" %}'" class="btn btn-primary">Reload Data</button>
