@@ -18,7 +18,7 @@ def index(request):  # Add this function
 def traffic_data_view(request):
     # fileName = "./traffic_data_app/data/Traffic_Volumes_-_Provincial_Highway_System.csv"
     # fileName = "../data/Traffic_Volumes_-_Provincial_Highway_System.csv"
-    traffic_data = load_data(request)
+    traffic_data = TrafficData.objects.all()
     return render(request, 'traffic_data.html', {'traffic_data': traffic_data})
 
 def reload_data(request):
@@ -49,18 +49,31 @@ def edit_data(request, id):
     return render(request, 'edit.html', {'form': form})
 
 def delete_data(request, id):
-    data = get_object_or_404(TrafficData, pk=id)
-    if request.method == "GET":
-        data.delete()
-        data.save()
-        # TrafficData.objects.filter(id=id).delete()
-        return redirect('trafficdata')
-    return redirect('trafficdata')
+    # data = get_object_or_404(TrafficData, pk=id)
+    # if request.method == "GET":
+    #     data.delete()
+    #     TrafficData.objects.filter(id=id).delete()
+    #     return redirect('trafficdata')
+    data = request.GET.getlist(id)
+    TrafficData.objects.filter(id__in=data).delete()
+    traffic_data = TrafficData.objects.all()  # Get the current data in memory
+    return render(request, 'traffic_data.html', {'traffic_data': traffic_data})  # Render the current data
+
+def insert_data(request):
+    if request.method == "POST":
+        form = TrafficDataForm(request.POST)
+        if form.is_valid():
+            data = form.save()
+            return redirect('trafficdata')
+    else:
+        form = TrafficDataForm()
+    return render(request, 'edit.html', {'form': form}) 
 
 def delete_selected_data(request):
     selected_data_ids = request.POST.getlist('selected_data')
     TrafficData.objects.filter(id__in=selected_data_ids).delete()
-    return redirect('trafficdata')
+    traffic_data = TrafficData.objects.all()  # Get the current data in memory
+    return render(request, 'traffic_data.html', {'traffic_data': traffic_data})  # Render the current data
 
 def load_data(request):
     dtos = readCSV()
