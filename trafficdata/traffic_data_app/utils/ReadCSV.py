@@ -19,8 +19,9 @@ def readCSV(fileName):
     id = 1  # Initialize id variable
 
     print(os.getcwd())
-    with open(fileName) as data:
-        reader = list(csv.reader(data)) #Using list to convert the reader object to a list
+    try:
+        with open(fileName) as data:
+            reader = list(csv.reader(data)) #Using list to convert the reader object to a list
         for row in reader[2:20]: #Loads the first 100 rows ommiting the header
             dto = DTO()
             dto.set_id(id)  # Set the id of the DTO object
@@ -45,7 +46,10 @@ def readCSV(fileName):
             dtos.append(dto)
             id += 1  # Increment the id variable
 
-    return dtos
+        return dtos
+    except FileNotFoundError:
+        print(f"File {fileName} not found.")
+        return []
 
 # try:
 #     readCSV()
