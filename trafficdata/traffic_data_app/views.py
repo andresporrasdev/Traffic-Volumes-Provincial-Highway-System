@@ -22,11 +22,8 @@ def traffic_data_view(request):
     return render(request, 'traffic_data.html', {'traffic_data': traffic_data})
 
 def reload_data(request):
-    global traffic_data
-    traffic_data = readCSV()
-    messages.success(request, 'Data reloaded successfully')
-    return render(request, 'reload.html', {'message': 'Data persisted successfully'})
-    # return JsonResponse({'message': 'Data reloaded successfully'})
+    traffic_data = TrafficData.objects.all()
+    return render(request, 'traffic_data.html', {'traffic_data': traffic_data})
 
 def persist_data(request):
     with open('exported_traffic_data.csv', 'w', newline='') as file:
@@ -53,10 +50,12 @@ def edit_data(request, id):
 
 def delete_data(request, id):
     data = get_object_or_404(TrafficData, pk=id)
-    if request.method == "POST":
+    if request.method == "GET":
         data.delete()
+        data.save()
+        # TrafficData.objects.filter(id=id).delete()
         return redirect('trafficdata')
-    return render(request, 'confirm_delete.html', {'object': data})
+    return redirect('trafficdata')
 
 def delete_selected_data(request):
     selected_data_ids = request.POST.getlist('selected_data')
@@ -89,7 +88,7 @@ def load_data(request):
         data.save()
         traffic_data_list.append(data)  # Add the TrafficData object to the list
 
-    return render(request, 'traffic_data.html', {'traffic_data': traffic_data_list})
+    return render(request, 'traffic_data.html', {'traffic_data': TrafficData.objects.all()})
 
 # def load_data(request):
 #     dtos = readCSV()
