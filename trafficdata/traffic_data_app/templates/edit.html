@@ -1,8 +1,9 @@
-{% extends 'base_generic.html' %} {% block content %}
-<h2>Edit Traffic Data</h2>
-<h2>Author Andres Porras</h2>
-<form method="POST">
+{% extends 'base_generic.html' %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<form method="POST" class="mb-3">
   {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Save changes</button>
+  <button type="submit" class="btn btn-primary">Save changes</button>
 </form>
+
 {% endblock %}

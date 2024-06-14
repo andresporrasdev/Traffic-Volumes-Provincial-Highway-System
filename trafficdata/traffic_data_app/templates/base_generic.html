@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Traffic Data</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Welcome to Traffic Data</h1>
-        <h2>Website build by Andres Porras</h2>
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <h1>Welcome to Traffic Data</h1>
+      <h2>Website build by Andres Porras</h2>
     </header>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-</body>
+    <main>{% block content %} {% endblock %}</main>
+  </body>
 </html>
