@@ -23,6 +23,9 @@ urlpatterns = [
     path('trafficdata/', views.traffic_data_view, name='trafficdata'),  # Assuming 'traffic_data_view' is a function in your views.py
     path('reload/', views.reload_data, name='reload_data'),
     path('persist/', views.persist_data, name='persist_data'),
+    path('edit/<int:id>/', views.edit_data, name='edit_data'),
+    path('delete/<int:id>/', views.delete_data, name='delete_data'),
+path('delete_selected/', views.delete_selected_data, name='delete_selected_data'),
 ]
 
 # urlpatterns = [

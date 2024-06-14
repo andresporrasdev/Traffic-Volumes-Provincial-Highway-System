@@ -4,6 +4,9 @@ from django.http import JsonResponse
 from .models import TrafficData
 import csv
 from .utils.ReadCSV import readCSV  # Add this line
+from django.shortcuts import redirect
+from .forms import TrafficDataForm
+from django.shortcuts import get_object_or_404
 
 traffic_data = []
 
@@ -35,3 +38,27 @@ def persist_data(request):
     messages.success(request, 'Data persisted successfully')
     return render(request, 'exported.html', {'message': 'Data persisted successfully'})
     # return JsonResponse({'message': 'Data persisted successfully'})
+
+def edit_data(request, id):
+    data = get_object_or_404(TrafficData, pk=id)
+    if request.method == "POST":
+        form = TrafficDataForm(request.POST, instance=data)
+        if form.is_valid():
+            data = form.save()
+            data.save()
+            return redirect('traffic_data_view')
+    else:
+        form = TrafficDataForm(instance=data)
+    return render(request, 'edit.html', {'form': form})
+
+def delete_data(request, id):
+    data = get_object_or_404(TrafficData, pk=id)
+    if request.method == "POST":
+        data.delete()
+        return redirect('traffic_data_view')
+    return render(request, 'confirm_delete.html', {'object': data})
+
+def delete_selected_data(request):
+    selected_data_ids = request.POST.getlist('selected_data')
+    TrafficData.objects.filter(id__in=selected_data_ids).delete()
+    return redirect('traffic_data_view')

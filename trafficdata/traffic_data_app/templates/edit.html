@@ -1,0 +1,7 @@
+{% extends 'base_generic.html' %} {% block content %}
+<h2>Edit Traffic Data</h2>
+<form method="POST">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Save changes</button>
+</form>
+{% endblock %}

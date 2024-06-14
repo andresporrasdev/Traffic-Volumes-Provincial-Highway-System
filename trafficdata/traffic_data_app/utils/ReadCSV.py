@@ -13,11 +13,14 @@ def readCSV():
         list: A list of DTO objects.
     """
     dtos = []
+    id = 1  # Initialize id variable
+
     print(os.getcwd())
     with open(fileName) as data:
         reader = list(csv.reader(data)) #Using list to convert the reader object to a list
-        for row in reader[2:101]: #Loads the first 200 rows ommiting the header
+        for row in reader[2:5]: #Loads the first 20\\q\\00 rows ommiting the header
             dto = DTO()
+            dto.set_id(id)  # Set the id of the DTO object
             dto.set_sectionID(row[0])
             dto.set_highway(row[1])
             dto.set_section(row[2])
@@ -32,6 +35,8 @@ def readCSV():
             dto.set_adt(row[11])
             dto.set_direction(row[13])
             dtos.append(dto)
+            id += 1  # Increment the id variable
+
     return dtos
 
 # try:
