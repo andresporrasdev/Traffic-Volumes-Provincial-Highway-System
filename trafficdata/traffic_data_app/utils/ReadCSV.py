@@ -1,6 +1,7 @@
 from .DTO import DTO
 import csv
 import os
+from datetime import datetime
 
 fileName = "D:/Git/PythonLearning/PythonLearning/trafficdata/traffic_data_app/data/Traffic_Volumes_-_Provincial_Highway_System.csv"
 
@@ -26,7 +27,12 @@ def readCSV():
             dto.set_section(row[2])
             dto.set_sectionLength(row[3])
             dto.set_sectionDescription(row[4])
-            dto.set_date(row[5])
+            # Function to format the date
+            date_str = row[5]
+            date_obj = datetime.strptime(date_str, '%m/%d/%Y')  # Convert string to datetime object
+            formatted_date = date_obj.strftime('%Y-%m-%d')  # Format datetime object to string in 'YYYY-MM-DD' format
+            dto.set_date(formatted_date)
+            # dto.set_date(row[5])
             dto.set_description(row[6])
             dto.set_group(row[7])
             dto.set_type(row[8])

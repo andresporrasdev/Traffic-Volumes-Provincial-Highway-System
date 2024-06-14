@@ -23,24 +23,24 @@
       <th>ADT</th>
       <th>Direction</th>
     </tr>
-    {% for dto in traffic_data %}
+    {% for data in traffic_data %}
     <tr>
-      <td><input type="checkbox" name="selected_data" value="{{ dto.id }}"></td>
-      <td>{{ dto.id }}</td>
-      <td>{{ dto.sectionID }}</td>
-      <td>{{ dto.highway }}</td>
-      <td>{{ dto.section }}</td>
-      <td>{{ dto.sectionLength }}</td>
-      <td>{{ dto.sectionDescription }}</td>
-      <td>{{ dto.date }}</td>
-      <td>{{ dto.description }}</td>
-      <td>{{ dto.group }}</td>
-      <td>{{ dto.type }}</td>
-      <td>{{ dto.county }}</td>
-      <td>{{ dto.adt }}</td>
-      <td>{{ dto.direction }}</td>
-      <td><a href="{% url 'edit_data' dto.id %}">Edit</a></td>
-      <td><a href="{% url 'delete_data' dto.id %}">Delete</a></td>    
+      <td><input type="checkbox" name="selected_data" value="{{ data.id }}"></td>
+      <td>{{ data.id }}</td>
+      <td>{{ data.sectionID }}</td>
+      <td>{{ data.highway }}</td>
+      <td>{{ data.section }}</td>
+      <td>{{ data.sectionLength }}</td>
+      <td>{{ data.sectionDescription }}</td>
+      <td>{{ data.date }}</td>
+      <td>{{ data.description }}</td>
+      <td>{{ data.group }}</td>
+      <td>{{ data.type }}</td>
+      <td>{{ data.county }}</td>
+      <td>{{ data.adt }}</td>
+      <td>{{ data.direction }}</td>
+      <td><a href="{% url 'edit_data' data.id %}">Edit</a></td>
+      <td><a href="{% url 'delete_data' data.id %}">Delete</a></td>    
     </tr>
     {% endfor %}
   </table>
