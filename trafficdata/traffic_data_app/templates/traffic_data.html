@@ -1,13 +1,15 @@
-{% extends 'base_generic.html' %}
-
+{% load static %}
 {% block content %}
-  <h2>Traffic Data</h2>
-<button onclick="location.href='{% url "reload_data" %}'">Reload Data</button>
-<button onclick="location.href='{% url "persist_data" %}'">Persist Data</button>
-<button onclick="location.href='{% url "insert_data" %}'">Add new record</button>
-<form method="POST" action="{% url 'delete_selected_data' %}">
-  {% csrf_token %}  
-<table>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <h2 class="mb-3">Traffic Data</h2>
+  <div class="btn-group mb-3" role="group" aria-label="Data actions">
+    <button onclick="location.href='{% url "reload_data" %}'" class="btn btn-primary">Reload Data</button>
+    <button onclick="location.href='{% url "persist_data" %}'" class="btn btn-primary">Persist Data</button>
+    <button onclick="location.href='{% url "insert_data" %}'" class="btn btn-primary">Add new record</button>
+  </div>
+  <form method="POST" action="{% url 'delete_selected_data' %}" id="dataForm">
+    {% csrf_token %}  
+    <table class="table">
     <tr>
       <th>Select</th>
       <th>Unique ID</th>
@@ -44,6 +46,12 @@
     </tr>
     {% endfor %}
   </table>
-  <button type="submit">Delete Selected</button>
+  <button type="submit" onclick="submitForm('{% url 'delete_selected_data' %}');" class="btn btn-danger">Delete Selected</button>
+  <button type="submit" onclick="submitForm('{% url 'display_selected_data' %}');" class="btn btn-success">Display Selected</button>
 </form>
+<script>
+  function submitForm(action) {
+      document.getElementById('dataForm').action = action;
+  }
+</script>
 {% endblock %}

@@ -130,3 +130,8 @@ def load_data(request):
 #         )
 #         data.save()
 #     return redirect('traffic_data_view')
+
+def display_selected_data(request):
+    selected_data_ids = request.POST.getlist('selected_data')
+    traffic_data = TrafficData.objects.filter(id__in=selected_data_ids) # Get the selection
+    return render(request, 'traffic_data.html', {'traffic_data': traffic_data})  # Render the current data

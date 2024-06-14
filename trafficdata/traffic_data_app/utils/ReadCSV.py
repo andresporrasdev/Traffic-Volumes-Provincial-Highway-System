@@ -3,9 +3,11 @@ import csv
 import os
 from datetime import datetime
 
-fileName = "D:/Git/PythonLearning/PythonLearning/trafficdata/traffic_data_app/data/Traffic_Volumes_-_Provincial_Highway_System.csv"
+# fileName = "D:/Git/PythonLearning/PythonLearning/trafficdata/traffic_data_app/data/Traffic_Volumes_-_Provincial_Highway_System.csv"
+fileName = ""
 
-def readCSV():
+
+def readCSV(fileName):
     """
     Reads a CSV file and returns a list of DTO objects.
     Args:
