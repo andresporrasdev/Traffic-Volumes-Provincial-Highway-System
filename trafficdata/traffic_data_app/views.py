@@ -12,7 +12,8 @@ traffic_data = []
 
 def index(request):  # Add this function
     # return render(request, 'traffic_data.html')
-    traffic_data = readCSV()
+    FileName="D:/Git/PythonLearning/PythonLearning/trafficdata/traffic_data_app/data/Traffic_Volumes_-_Provincial_Highway_System.csv"
+    traffic_data = readCSV(FileName)
     return render(request, 'traffic_data.html', {'traffic_data': traffic_data})
 
 def traffic_data_view(request):
@@ -27,7 +28,8 @@ def reload_data(request):
 
 def persist_data(request):
     with open('exported_traffic_data.csv', 'w', newline='') as file:
-        traffic_data = readCSV()
+        fileName = "D:/Git/PythonLearning/PythonLearning/trafficdata/traffic_data_app/data/Traffic_Volumes_-_Provincial_Highway_System.csv"
+        traffic_data = readCSV(fileName)
         writer = csv.writer(file)
         writer.writerow(["sectionID", "highway", "section", "sectionLength", "sectionDescription", "date", "description", "group", "type", "county", "ptrucks", "adt", "direction"])
         for data in traffic_data:
@@ -76,7 +78,8 @@ def delete_selected_data(request):
     return render(request, 'traffic_data.html', {'traffic_data': traffic_data})  # Render the current data
 
 def load_data(request):
-    dtos = readCSV()
+    fileName = "D:/Git/PythonLearning/PythonLearning/trafficdata/traffic_data_app/data/Traffic_Volumes_-_Provincial_Highway_System.csv"
+    dtos = readCSV(fileName)
     traffic_data_list = []  # Create an empty list to store the TrafficData objects
     for dto in dtos:
         data = TrafficData(
