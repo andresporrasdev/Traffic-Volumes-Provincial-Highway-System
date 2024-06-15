@@ -22,7 +22,7 @@ def readCSV(fileName):
     try:
         with open(fileName) as data:
             reader = list(csv.reader(data)) #Using list to convert the reader object to a list
-        for row in reader[2:20]: #Loads the first 100 rows ommiting the header
+        for row in reader[2:24]: #Loads the first 100 rows ommiting the header
             dto = DTO()
             dto.set_id(id)  # Set the id of the DTO object
             dto.set_sectionID(row[0])
@@ -50,11 +50,4 @@ def readCSV(fileName):
     except FileNotFoundError:
         print(f"File {fileName} not found.")
         return []
-
-# try:
-#     readCSV()
-# except FileNotFoundError as e: #Change the name or the file to test the exception
-#     print("File not found Error exception")
-#     print("The file name found is: " + str(e.filename))
-
 print ("Program made by Andres Porras")

@@ -75,7 +75,7 @@ def persist_data(request):
         for data in traffic_data:
             writer.writerow([data.get_sectionID(), data.get_highway(), data.get_section(), data.get_sectionLength(), data.get_sectionDescription(), data.get_date(), data.get_description(), data.get_group(), data.get_type(), data.get_county(), data.get_ptrucks(), data.get_adt(), data.get_direction()])
     messages.success(request, 'Data persisted successfully')
-    return render(request, 'exported.html', {'message': 'Data persisted successfully'})
+    return render(request, 'exported.html', {'message': 'Your data have been exported succesfully'})
     # return JsonResponse({'message': 'Data persisted successfully'})
 
 def edit_data(request, id):
