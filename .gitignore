@@ -5,3 +5,4 @@ trafficdata/trafficdata/__pycache__
 trafficdata/db.sqlite3
 trafficdata/traffic_data_app/data/migrations
 trafficdata/traffic_data_app/__pycache__
+trafficdata/db.sqlite3
