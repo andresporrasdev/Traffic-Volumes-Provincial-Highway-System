@@ -1,7 +1,7 @@
 __pycache__/DTO.cpython-312.pyc
-trafficdata/traffic_data_app/__pycache__/
-trafficdata/traffic_data_app/utils/__pycache__/
-trafficdata/traffic_data_app/utils/__pycache__/ReadCSV.cpython-312.pyc
-trafficdata/traffic_data_app/utils/__pycache__/DTO.cpython-312.pyc
-trafficdata/trafficdata/__pycache__/
+trafficdata/traffic_data_app/__pycache__
+trafficdata/traffic_data_app/utils/__pycache__
+trafficdata/trafficdata/__pycache__
 trafficdata/db.sqlite3
+trafficdata/traffic_data_app/data/migrations
+trafficdata/traffic_data_app/__pycache__
