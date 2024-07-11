@@ -1,7 +1,10 @@
 from datetime import datetime
 
 class DTO:
+
     def __init__(self):
+
+        self.id = 0
         self.sectionID = 0
         self.highway = 0
         self.section = 0
@@ -18,6 +21,14 @@ class DTO:
         self.direction = ''
         self.pct85 = 'ignore'
         self.priorityPoints = 'ignore'
+
+    def get_id(self):
+        """Get the ID."""
+        return self.id
+    
+    def set_id(self, value):
+        """Set the ID."""
+        self.id = value
 
     def get_sectionID(self):
         """Get the section ID."""
