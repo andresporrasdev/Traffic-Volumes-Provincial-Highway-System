@@ -3,3 +3,4 @@ trafficdata/traffic_data_app/utils/__pycache__/
 trafficdata/db.sqlite3
 trafficdata/trafficdata/__pycache__/
 trafficdata/traffic_data_app/__pycache__/*
+trafficdata/traffic_data_app/__pycache__/
