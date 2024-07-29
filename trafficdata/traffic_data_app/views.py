@@ -7,6 +7,8 @@ from .utils.ReadCSV import readCSV
 from django.shortcuts import redirect
 from .forms import TrafficDataForm
 from django.shortcuts import get_object_or_404
+from django.core.serializers.json import DjangoJSONEncoder
+import json
 
 traffic_data = []
 
@@ -39,6 +41,35 @@ def traffic_data_view(request):
     """
     traffic_data = TrafficData.objects.all()
     return render(request, 'traffic_data.html', {'traffic_data': traffic_data})
+
+from collections import Counter
+
+
+def traffic_data_chart(request):
+    """
+    View function for displaying a chart of traffic data.
+
+    Args:
+        request: The HTTP request object.
+
+    Returns:
+        A rendered HTML template with the chart data.
+
+    """
+    traffic_data = list(TrafficData.objects.values())
+    
+    # Count occurrences of each type and county
+    type_counts = Counter(item['type'] for item in traffic_data)
+    county_counts = Counter(item['county'] for item in traffic_data)
+    
+    # Prepare data for the chart
+    chart_data = {
+        'type': [{'label': key, 'count': value} for key, value in type_counts.items()],
+        'county': [{'label': key, 'count': value} for key, value in county_counts.items()],
+        'adt': [{'label': item['adt'], 'count': item['adt']} for item in traffic_data]
+    }
+    
+    return render(request, 'charts.html', {'chart_data': json.dumps(chart_data, cls=DjangoJSONEncoder)})
 
 def reload_data(request):
     """
