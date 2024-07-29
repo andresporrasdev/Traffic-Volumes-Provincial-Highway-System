@@ -30,4 +30,5 @@ urlpatterns = [
     path('delete_selected/', views.delete_selected_data, name='delete_selected_data'),
     path('insert/', views.insert_data, name='insert_data'),
     path('display_selected/', views.display_selected_data, name='display_selected_data'),
+    path('charts/', views.traffic_data_chart, name='chart_data'),
 ]

@@ -1,0 +1,64 @@
+{% extends 'base_generic.html' %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="row my-4">
+      <h2 class="my-3">Select the data to display</h2>
+      <div class="col-md-4">
+        <button class="btn btn-primary btn-block" onclick="updateChart('type')">
+          Type
+        </button>
+        <button
+          class="btn btn-primary btn-block"
+          onclick="updateChart('county')"
+        >
+          County
+        </button>
+        <button class="btn btn-primary btn-block" onclick="updateChart('adt')">
+            ADT
+          </button>
+      </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <canvas id="trafficChart" width="800" height="300"></canvas>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const chartData = {{ chart_data|safe }};
+  const ctx = document.getElementById('trafficChart').getContext('2d');
+  let chart;
+  function createChart(data, label) {
+      if (chart) {
+          chart.destroy();
+      }
+      chart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: data.map(item => item.label),
+              datasets: [{
+                  label: label,
+                  data: data.map(item => item.count),
+                  backgroundColor: 'rgba(78, 217, 217, 0.7)',
+                  borderColor: 'rgba(78, 217, 217, 1)',
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                y: {
+                    beginAtZero: true,
+                    max: label === 'adt' ? 50000 : undefined
+                }
+              }
+          }
+      });
+  }
+  function updateChart(column) {
+      createChart(chartData[column], column);
+  }
+  // Initialize the chart with 'type' data
+  updateChart('type');
+</script>
+{% endblock %}
