@@ -22,7 +22,7 @@ def readCSV(fileName):
     try:
         with open(fileName) as data:
             reader = list(csv.reader(data)) #Using list to convert the reader object to a list
-        for row in reader[2:24]: #Loads the first 100 rows ommiting the header
+        for row in reader[2:100]: #Loads the first 100 rows ommiting the header
             dto = DTO()
             dto.set_id(id)  # Set the id of the DTO object
             dto.set_sectionID(row[0])
@@ -41,7 +41,8 @@ def readCSV(fileName):
             dto.set_type(row[8])
             dto.set_county(row[9])
             dto.set_ptrucks(row[10])
-            dto.set_adt(row[11])
+            adt_value = float(row[11]) if row[11] else 0.0
+            dto.set_adt(adt_value)
             dto.set_direction(row[13])
             dtos.append(dto)
             id += 1  # Increment the id variable
