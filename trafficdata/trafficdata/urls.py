@@ -17,9 +17,11 @@ Including another URLconf
 
 from django.urls import path
 from traffic_data_app import views
+from django.contrib import admin
 
 urlpatterns = [
     path('', views.load_data, name='index'),
+    path('admin/', admin.site.urls),
     path('trafficdata/', views.load_data, name='trafficdata'),
     path('reload/', views.reload_data, name='reload_data'),
     path('persist/', views.persist_data, name='persist_data'),
