@@ -53,22 +53,3 @@
     <li><strong>Open Government Portal</strong>: The dataset is sourced from <a href="https://open.canada.ca/data/en/dataset/b5b01346-6a3f-a523-9f52-c61a52791356">Traffic Volumes - Provincial Highway System</a> on the Government of Canada website.</li>
 <li><strong>License</strong>: <a href="https://novascotia.ca/opendata/licence.asp">Open Government License - Canada</a></li>
 </ul>
-<h2>Setup and Installation</h2>
-<ol>
-    <li><strong>Clone the Repository</strong>:
-        <pre><code>git clone https://github.com/yourusername/your-repository.git</code></pre>
-    </li>
-    <li><strong>Install Dependencies</strong>:
-        <pre><code>pip install -r requirements.txt</code></pre>
-    </li>
-    <li><strong>Configure Database</strong>: Update the <code>DATABASES</code> setting in <code>settings.py</code> with your MySQL database credentials.</li>
-    <li><strong>Apply Migrations</strong>:
-        <pre><code>python manage.py migrate</code></pre>
-    </li>
-    <li><strong>Run the Development Server</strong>:
-        <pre><code>python manage.py runserver</code></pre>
-    </li>
-</ol>
-<p>For further details, please refer to the <a href="https://docs.djangoproject.com/en/stable/">Django documentation</a> and the <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">Bootstrap documentation</a>.</p>
-   
-      
