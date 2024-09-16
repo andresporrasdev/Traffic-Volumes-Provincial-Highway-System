@@ -1,11 +1,24 @@
 <h1>Traffic Volumes Web Application</h1>
 <h2>Application Architecture</h2>
 <p>This application follows the MVC (Model-View-Controller) pattern using the Django framework with Bootstrap for presentation. The backend processes data from the Traffic Volumes - Provincial Highway System dataset provided by the Government of Canada. Here’s an overview of its key components and functionalities:</p>
+
+![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/Traffic_arquitecture.jpg)
 <ul>
+    <li><strong>Frontend</strong>: Bootstrap is used for layout and presentation, while Chart.js is used for displaying data in bar charts.</li>
     <li><strong>Backend</strong>: Written in Python using Django, which follows the MVT (Model-View-Template) pattern.</li>
     <li><strong>Database</strong>: MySQL is used to store the data.</li>
-    <li><strong>Frontend</strong>: Bootstrap is used for layout and presentation, while Chart.js is used for displaying data in bar charts.</li>
 </ul>
+
+![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/Traffic_sequence.jpg)
+
+<ul>
+    <li>When the app starts, it process the data from the CSV file, which is read using a utility (e.g., readCSV.py).</li>
+    <li>After read data from the CSV file, it store it in the MySQL database</li>
+    <li>This data is converted into a suitable format and passed to Django views.</li>
+    <li>From the views, the data is then sent as JSON to the frontend, where Chart.js renders it in various chart types such as bar charts or line charts</li>
+</ul>
+
+
 <h3>Key Features</h3>
   <ul>
       <li><strong>Reload Data</strong>: Refreshes the data currently in memory.</li>
@@ -19,6 +32,9 @@
       <li><strong>Data Visualization</strong>: Display data using Chart.js by passing data as JSON and rendering it in a bar chart.</li>
   </ul>
 <h2>Front-end (Presentation Layer)</h2>
+
+![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/traffic4.jpg)
+
 <p>The presentation layer uses Django templates to render data:</p>
 <ul>
     <li><strong>Django Framework</strong>: Handles the display of data using HTML templates.</li>
@@ -29,6 +45,9 @@
     </li>
 </ul>
 <h2>Business Logic Layer</h2>
+
+![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/Traffic1.jpg)
+
 <ul>
     <li><strong>Utils</strong>:
         <ul>
@@ -47,6 +66,9 @@
             </li>
 </ul>
 <h2>Data Source</h2>
+
+![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/traffic2.jpg)
+
 <ul>
     <li><strong>CSV File</strong>: <code>Traffic_Volumes_-_Provincial_Highway_System.csv</code></li>
     <li><strong>MySQL Database</strong>: Stores data in memory using Django Framework.</li>
