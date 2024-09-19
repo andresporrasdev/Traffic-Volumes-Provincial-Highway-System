@@ -5,16 +5,15 @@
         <li>Utilized Django framework for backend development, following the MVT (Model-View-Template) architecture.</li>
         <li>Integrated Bootstrap for responsive front-end design and Chart.js for dynamic data visualization.</li>
         <li>Wrote custom Python scripts to handle data extraction and processing from CSV files.</li>
-        <li>•	Implemented MySQL as the database to store and manage traffic data.</li>
+        <li>Implemented MySQL as the database to store and manage traffic data.</li>
     </ul>
 </p>
 
+<h2>MVT Implementation</h2>
+
 ![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/Traffic_arquitecture.jpg)
-<ul>
-    <li><strong>Frontend</strong>: Bootstrap is used for layout and presentation, while Chart.js is used for displaying data in bar charts.</li>
-    <li><strong>Backend</strong>: Written in Python using Django, which follows the MVT (Model-View-Template) pattern.</li>
-    <li><strong>Database</strong>: MySQL is used to store the data.</li>
-</ul>
+
+<h2>Flow Design</h2>
 
 ![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/Traffic_sequence.jpg)
 
