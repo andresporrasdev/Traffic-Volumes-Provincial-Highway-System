@@ -1,6 +1,13 @@
 <h1>Traffic Volumes Web Application</h1>
 <h2>Application Architecture</h2>
-<p>This application follows the MVC (Model-View-Controller) pattern using the Django framework with Bootstrap for presentation. The backend processes data from the Traffic Volumes - Provincial Highway System dataset provided by the Government of Canada. Here’s an overview of its key components and functionalities:</p>
+<p>Developed a web application that reads and visualizes traffic data from the "Traffic Volumes - Provincial Highway System" dataset provided by the Government of Canada. The application processes data from CSV files and displays it in interactive tables and bar charts using the Django framework.
+    <ul>
+        <li>Utilized Django framework for backend development, following the MVT (Model-View-Template) architecture.</li>
+        <li>Integrated Bootstrap for responsive front-end design and Chart.js for dynamic data visualization.</li>
+        <li>Wrote custom Python scripts to handle data extraction and processing from CSV files.</li>
+        <li>•	Implemented MySQL as the database to store and manage traffic data.</li>
+    </ul>
+</p>
 
 ![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/Traffic_arquitecture.jpg)
 <ul>
