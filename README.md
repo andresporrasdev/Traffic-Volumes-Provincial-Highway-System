@@ -9,10 +9,10 @@ Developed a web application that reads and visualizes traffic data from the "Tra
 - Implemented MySQL as the database to store and manage traffic data.
 
 ## MVT Implementation
-![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/Traffic_arquitecture.jpg)
+![Traffic Volumes Web Application](https://raw.githubusercontent.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/main/images/readme/Traffic_arquitecture.jpg)
 
 ## Flow Design
-![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/Traffic_sequence.jpg)
+![Traffic Volumes Web Application](https://raw.githubusercontent.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/main/images/readme/Traffic_sequence.jpg)
 
 - When the app starts, it processes the data from the CSV file, which is read using a utility (e.g., readCSV.py).
 - After reading data from the CSV file, it stores it in the MySQL database.
@@ -31,7 +31,7 @@ Developed a web application that reads and visualizes traffic data from the "Tra
 - **Data Visualization**: Display data using Chart.js by passing data as JSON and rendering it in a bar chart.
 
 ## Front-end (Presentation Layer)
-![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/traffic4.jpg)
+![Traffic Volumes Web Application](https://raw.githubusercontent.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/main/images/readme/traffic4.jpg)
 
 The presentation layer uses Django templates to render data:
 - **Django Framework**: Handles the display of data using HTML templates.
@@ -39,7 +39,7 @@ The presentation layer uses Django templates to render data:
   - `traffic_data.html`: Displays traffic data in a tabular format or as a bar chart using Chart.js.
 
 ## Business Logic Layer
-![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/Traffic1.jpg)
+![Traffic Volumes Web Application](https://raw.githubusercontent.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/main/images/readme/Traffic1.jpg)
 
 - **Utils**:
   - `readCSV.py`: Reads the CSV file and converts the data into a format usable by Django. It creates a list of DTO (Data Transfer Object) objects.
@@ -49,7 +49,7 @@ The presentation layer uses Django templates to render data:
   - Contains view functions that handle user requests, process data, and return responses. View functions call `readCSV` to get traffic data and pass it to templates for rendering.
 
 ## Data Source
-![Traffic Volumes Web Application](https://github.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/blob/main/images/readme/traffic2.jpg)
+![Traffic Volumes Web Application](https://raw.githubusercontent.com/andresporrasdev/Traffic-Volumes-Provincial-Highway-System/main/images/readme/traffic2.jpg)
 
 - **CSV File**: `Traffic_Volumes_-_Provincial_Highway_System.csv`
 - **MySQL Database**: Stores data in memory using Django Framework.
